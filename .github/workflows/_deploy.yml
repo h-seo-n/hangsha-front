@@ -3,6 +3,9 @@ name: _deploy
 on:
   workflow_call:
     inputs:
+      bucket_name:
+        required: true
+        type: string
       distribution_id:
         required: true
         type: string
@@ -42,5 +45,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.WAFFLE_CICD_SECRET_ACCESS_KEY }}
           AWS_REGION: ap-northeast-2
         run: |
-          aws s3 sync ./dist s3://hangsha-web-dev --delete
+          aws s3 sync ./dist s3://${{ inputs.bucket_name }} --delete
           aws cloudfront create-invalidation --distribution-id ${{ inputs.distribution_id }} --paths "/*"
