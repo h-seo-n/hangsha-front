@@ -1,0 +1,14 @@
+name: deploy-prod
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/_deploy.yml
+    with:
+      distribution_id: E1UQAE6HOA8O14
+    secrets: inherit
