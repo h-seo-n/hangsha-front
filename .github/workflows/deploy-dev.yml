@@ -10,5 +10,6 @@ jobs:
   deploy:
     uses: ./.github/workflows/_deploy.yml
     with:
+      bucket_name: hangsha-web-dev
       distribution_id: E3FWQLYH2W4XLU
     secrets: inherit
