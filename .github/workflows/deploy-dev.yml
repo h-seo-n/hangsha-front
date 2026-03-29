@@ -42,4 +42,4 @@ jobs:
           AWS_REGION: ap-northeast-2
         run: |
           aws s3 sync ./dist s3://hangsha-web-dev --delete
-          aws cloudfront create-invalidation --distribution-id 여기에_DEV용_CF_ID를_넣어주세요 --paths "/*"
+          aws cloudfront create-invalidation --distribution-id E3FWQLYH2W4XLU --paths "/*"
